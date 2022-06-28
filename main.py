@@ -1,9 +1,19 @@
 import keyboard
-import random 
-from colorama import Fore 
+import random
 
 words = open('words_alpha.txt', "r").readlines()
 guess_count = 10
+
+class Fore:
+    black = "\33[30m"
+    red = "\33[31m"
+    green = "\33[32m"
+    yellow = "\33[33m"
+    blue = "\33[34m"
+    megenta = "\33[35m"
+    cyan = "\33[36m"
+    white = "\33[37m"
+    reset = "\033[00m"
 
 def _guess(word):
     global guess_count
@@ -24,12 +34,12 @@ def _guess(word):
                 # Letter correct
                 if guessSplit[_i] == wordSplit[_i]:
                     # Letter correct with index
-                    res += Fore.GREEN + i + Fore.RESET
+                    res += Fore.green + i + Fore.reset
                     wordSplit[_i] = " "
                     correct += 1
                 else:
                     # Letter correct elsewhere
-                    res += Fore.YELLOW + i + Fore.RESET
+                    res += Fore.yellow + i + Fore.reset
             else:
                 res += i
         guess_count -= 1
